@@ -32,11 +32,11 @@ O banco foi modelado em SQL (MySQL 8.0+), com chaves primárias, estrangeiras e 
 * Professores que ainda lecionam não podem ser excluídos
 
 ```mermaid
-erDiagram
-    SERIE ||--o{ TURMA : "possui"
-    TURMA ||--o{ MATRICULA : "recebe"
-    ALUNO ||--o{ MATRICULA : "realiza"
-    TURMA ||--o{ TURMA_DISCIPLINA : "tem"
-    DISCIPLINA ||--o{ TURMA_DISCIPLINA : "é lecionada em"
-    PROFESSOR ||--o{ TURMA_DISCIPLINA : "leciona"
+flowchart TD
+    SERIE -->|possui| TURMA
+    ALUNO -->|realiza| MATRICULA
+    TURMA -->|recebe| MATRICULA
+    TURMA -->|tem| TURMA_DISCIPLINA
+    DISCIPLINA -->|é lecionada em| TURMA_DISCIPLINA
+    PROFESSOR -->|leciona| TURMA_DISCIPLINA
 ```
